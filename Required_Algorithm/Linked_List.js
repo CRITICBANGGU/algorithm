@@ -139,7 +139,7 @@ class LinkedList {
     let current = this.head;
 
     while (current) {
-      console.log("list data is " + current.data);
+      console.log(current.data);
       current = current.next;
     }
   }
@@ -148,24 +148,13 @@ class LinkedList {
 const linkedList = new LinkedList();
 
 linkedList.insertFirst(100);
-console.log(linkedList);
 linkedList.insertFirst(200);
-console.log(linkedList);
-
 linkedList.insertFirst(300);
-console.log(linkedList);
-
 linkedList.insertLast(400);
-console.log(linkedList);
-
 linkedList.insertAt(500, 1);
-console.log(linkedList);
 
 linkedList.removeAt(2);
-linkedList.printListData();
 
 linkedList.getAt(2);
 
-//linkedList.clearList();
-
-console.log(linkedList);
+linkedList.printListData();
