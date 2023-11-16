@@ -13,7 +13,13 @@ class LinkedList {
 
   //맨 앞에 노드 삽입
   insertFirst(data) {
-    this.head = new ListNode(data);
+    if (this.head == null) {
+      this.head = new ListNode(data);
+    } else {
+      const node = new ListNode(data);
+      node.next = this.head;
+      this.head = node;
+    }
     this.size++;
   }
 
