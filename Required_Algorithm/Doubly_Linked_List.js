@@ -119,6 +119,31 @@ class DoublyLinkedList {
   }
 
   //중간에 있는 노드 삭제
+  removeNodeAt(index) {
+    let current, previous;
+    let count = 0;
+    current = this.head;
+    if (index === 0) {
+      this.removeHead();
+      return;
+    }
+    if (index === this.size - 1) {
+      this.removeTail();
+      return;
+    }
+    if (index >= this.size) {
+      return;
+    }
+    while (count < index) {
+      previous = current;
+      count++;
+      current = current.next;
+    }
+
+    previous.next = current.next;
+    current.next.pre = previous;
+    this.size--;
+  }
 
   //특정 노드에 있는 값 변경
 
