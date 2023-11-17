@@ -146,6 +146,32 @@ class DoublyLinkedList {
   }
 
   //특정 노드에 있는 값 변경
+  changeData(data, index) {
+    let previous, current;
+    let count = 0;
+    current = this.head;
+
+    if (index < 0) {
+      return;
+    }
+
+    if (index === 0) {
+      console.log("before data :" + current.data);
+      current.data = data;
+      console.log("after data :" + current.data);
+      return;
+    }
+
+    while (count < index) {
+      previous = current;
+      count++;
+      current = current.next;
+    }
+    console.log("before data :" + current.data);
+    current.data = data;
+    console.log("after data :" + current.data);
+    return;
+  }
 
   //index의 node값 불러오기 head에서 부터
   getNodeFromHeadAt(index) {
