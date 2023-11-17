@@ -201,6 +201,30 @@ class DoublyLinkedList {
   }
 
   //index의 node값 불러오기 tail에서 부터
+  getNodeFromTailAt(index) {
+    if (index < 0 || index >= this.size) {
+      return;
+    }
+    //맨 앞에 있는 값 가져오기
+    if (this.size == 0) {
+      return this.head.data;
+    }
+    //맨 뒤에 있는 값 가져오기
+    if (this.size - 1 === index) {
+      return this.head.data;
+    } else {
+      let current, previous;
+      let count = 0;
+
+      current = this.tail;
+      while (count < index) {
+        previous = current.pre;
+        count++;
+        current = current.pre;
+      }
+      return current.data;
+    }
+  }
 }
 
 const doublyLinkedList = new DoublyLinkedList();
