@@ -59,6 +59,22 @@ class DoublyLinkedList {
     }
 
     //중간에 삽입
+    else {
+      let current, previous;
+      let count = 0;
+      current = this.head;
+      while (count < index) {
+        previous = current;
+        count++;
+        current = current.next;
+      }
+      const newNode = new LinkNode(data);
+      previous.next = newNode;
+      newNode.pre = previous;
+      current.pre = newNode;
+      newNode.next = current;
+      this.size++;
+    }
   }
 
   //맨 앞에 있는 노드 삭제
@@ -106,4 +122,6 @@ doublyLinkedList.insertHead(2);
 doublyLinkedList.insertHead(1);
 doublyLinkedList.insertTail(0);
 doublyLinkedList.getNodeFromHeadAt(4);
+doublyLinkedList.insertAt(2.5, 2);
+doublyLinkedList.getNodeFromHeadAt(3);
 console.log(doublyLinkedList);
