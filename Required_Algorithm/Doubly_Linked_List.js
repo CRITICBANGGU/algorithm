@@ -100,6 +100,23 @@ class DoublyLinkedList {
     return;
   }
   //맨 뒤에 있는 노드 삭제
+  removeTail() {
+    if (this.size === 0) {
+      console.log("reset List");
+      return;
+    }
+
+    if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
+      this.size = 0;
+      console.log("reset List");
+      return;
+    }
+    this.tail = this.tail.pre;
+    this.tail.next = null;
+    this.size--;
+  }
 
   //중간에 있는 노드 삭제
 
