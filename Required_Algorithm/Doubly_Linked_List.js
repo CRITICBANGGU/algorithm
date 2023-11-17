@@ -99,6 +99,7 @@ class DoublyLinkedList {
     this.size--;
     return;
   }
+
   //맨 뒤에 있는 노드 삭제
   removeTail() {
     if (this.size === 0) {
@@ -180,11 +181,11 @@ class DoublyLinkedList {
     }
     //맨 앞에 있는 값 가져오기
     if (this.size == 0) {
-      return(this.head.data);
+      return this.head.data;
     }
     //맨 뒤에 있는 값 가져오기
-    else if (this.size === index) {
-      return(this.tail.data);
+    else if (this.size - 1 === index) {
+      return this.tail.data;
     }
     //중간에 있는 값 가져오기
     else {
@@ -196,7 +197,7 @@ class DoublyLinkedList {
         count++;
         current = current.next;
       }
-      return(current.data);
+      return current.data;
     }
   }
 
@@ -225,6 +226,7 @@ class DoublyLinkedList {
       return current.data;
     }
   }
+
   //list 안에 있는 모든 node 데이터 출력하기
   getAllNodeDataFromHead() {
     if (this.size === 0) {
@@ -265,10 +267,26 @@ class DoublyLinkedList {
 const doublyLinkedList = new DoublyLinkedList();
 
 doublyLinkedList.insertHead(3);
+//3->
 doublyLinkedList.insertHead(2);
+//2->3->
 doublyLinkedList.insertHead(1);
-doublyLinkedList.insertTail(0);
-doublyLinkedList.getNodeFromHeadAt(4);
+//1->2->3->
+doublyLinkedList.insertTail(4);
+//1->2->3->4->
 doublyLinkedList.insertAt(2.5, 2);
-doublyLinkedList.getNodeFromHeadAt(3);
-console.log(doublyLinkedList);
+//1->2->2.5->3->4->
+doublyLinkedList.getAllNodeDataFromHead();
+//head->1->2->2.5->3->4->tail
+doublyLinkedList.getAllNodeDataFromTail();
+//tail->4->3->2.5->2->1->head
+console.log(doublyLinkedList.getNodeFromHeadAt(3));
+//3
+doublyLinkedList.removeHead();
+//head->2->2.5->3->4->tail
+doublyLinkedList.removeTail();
+//head->2->2.5->3->tail
+doublyLinkedList.changeData(100, 1);
+//head->2->100->3->tail
+doublyLinkedList.removeNodeAt(2);
+//head->2->100->tail
