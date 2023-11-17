@@ -225,6 +225,41 @@ class DoublyLinkedList {
       return current.data;
     }
   }
+  //list 안에 있는 모든 node 데이터 출력하기
+  getAllNodeDataFromHead() {
+    if (this.size === 0) {
+      return;
+    }
+    if (this.size === 1) {
+      console.log("all nodes data from head");
+      console.log(this.head.data);
+      return;
+    } else {
+      let count = 0;
+      console.log("all nodes data from head");
+      while (count < this.size) {
+        console.log(this.getNodeFromHeadAt(count) + "->");
+        count++;
+      }
+    }
+  }
+  getAllNodeDataFromTail() {
+    if (this.size === 0) {
+      return;
+    }
+    if (this.size === 1) {
+      console.log("all nodes data from tail");
+      console.log(this.head.data);
+      return;
+    } else {
+      let count = 0;
+      console.log("all nodes data from tail");
+      while (count < this.size) {
+        console.log(this.getNodeFromTailAt(count) + "->");
+        count++;
+      }
+    }
+  }
 }
 
 const doublyLinkedList = new DoublyLinkedList();
