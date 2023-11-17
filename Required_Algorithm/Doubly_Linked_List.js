@@ -129,11 +129,11 @@ class DoublyLinkedList {
     }
     //맨 앞에 있는 값 가져오기
     if (this.size == 0) {
-      console.log(this.head.data);
+      return(this.head.data);
     }
     //맨 뒤에 있는 값 가져오기
     else if (this.size === index) {
-      console.log(this.tail.data);
+      return(this.tail.data);
     }
     //중간에 있는 값 가져오기
     else {
@@ -145,7 +145,7 @@ class DoublyLinkedList {
         count++;
         current = current.next;
       }
-      console.log(current.data);
+      return(current.data);
     }
   }
 
