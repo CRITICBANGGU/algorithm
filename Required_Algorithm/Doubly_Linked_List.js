@@ -78,7 +78,27 @@ class DoublyLinkedList {
   }
 
   //맨 앞에 있는 노드 삭제
-
+  removeHead() {
+    //비어있는 리스트일 경우
+    if (this.size === 0) {
+      console.log("reset List");
+      return;
+    }
+    //리스트 안에 노드 1개 있을 경우
+    if (this.size === 1) {
+      this.head = null;
+      this.tail = null;
+      this.size = 0;
+      console.log("reset List");
+      return;
+    }
+    //리스트 안에 노드 2개 이상 있을 경우
+    this.head = this.head.next;
+    this.head.pre.next = null;
+    this.head.pre = null;
+    this.size--;
+    return;
+  }
   //맨 뒤에 있는 노드 삭제
 
   //중간에 있는 노드 삭제
