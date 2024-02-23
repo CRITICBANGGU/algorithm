@@ -30,3 +30,21 @@ const DFS = (graph, startNode) => {
   return visited;
 };
 console.log(DFS(graph, "A"));
+
+function dfsRecursive(graph, currentNode, visited) {
+  console.log(currentNode); // 방문한 노드 출력
+  visited[currentNode] = true;
+
+  const neighbors = graph[currentNode];
+  for (let i = 0; i < neighbors.length; i++) {
+    const neighbor = neighbors[i];
+    if (!visited[neighbor]) {
+      dfsRecursive(graph, neighbor, visited);
+    }
+  }
+}
+
+function dfs(graph, startNode) {
+  const visited = {};
+  dfsRecursive(graph, startNode, visited);
+}
